@@ -4,6 +4,5 @@ resource "aws_nat_gateway" "my_nat_gateway" {
   tags = {
     Name = "NATGateway"
     Date = local.current_date
-    Env  = var.env
   }
 }
