@@ -5,7 +5,7 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch = true
   availability_zone = element(var.availability_zones, count.index % length(var.availability_zones))
   tags = {
-    Name = "public-subnet-${count.index + 1}"
+    Name = element(var.public_subnet_names, count.index)
     Environment  = var.env
     Email   = var.Email
     Project_Name = var.Project_Name
@@ -19,7 +19,7 @@ resource "aws_subnet" "private" {
   cidr_block        = var.private_subnet_cidrs[count.index]
   availability_zone = element(var.availability_zones, count.index % length(var.availability_zones))
   tags = {
-    Name = "private-subnet-${count.index + 1}"
+    Name = element(var.private_subnet_names, count.index)
     Environment  = var.env
     Email   = var.Email
     Project_Name = var.Project_Name
