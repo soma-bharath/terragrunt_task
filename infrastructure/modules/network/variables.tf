@@ -13,8 +13,18 @@ variable "public_subnet_cidrs" {
   type        = list(string)
 }
 
+variable "public_subnet_names" {
+  description = "List of public subnet names"
+  type        = list(string)
+}
+
 variable "private_subnet_cidrs" {
   description = "List of CIDR blocks for private subnets"
+  type        = list(string)
+}
+
+variable "private_subnet_names" {
+  description = "List of private subnet names"
   type        = list(string)
 }
 
