@@ -21,7 +21,7 @@ resource "aws_route_table" "private" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    nat_gateway_id = aws_nat_gateway.my_nat_gateway.id
+    nat_gateway_id = aws_nat_gateway.my_nat_gateway[count.index % length(aws_nat_gateway.my_nat_gateways)].id
   }
 
   tags = {
