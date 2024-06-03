@@ -38,3 +38,13 @@ variable "Project_Name" {
 variable "Name" {
    default = "Jenkins-prodgov-jen-001"
 }
+
+variable "nat_gateway_ids" {
+  type = list(string)
+  description = "List of NAT Gateway IDs"
+  default = [
+    aws_nat_gateway.nategateway_a.id,
+    aws_nat_gateway.nategateway_c.id
+  ]
+}
+
