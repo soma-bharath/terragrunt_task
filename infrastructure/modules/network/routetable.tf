@@ -8,6 +8,10 @@ resource "aws_route_table" "public" {
 
   tags = {
     Name = "public-route-table"
+    Environment  = var.env
+    Email   = var.Email
+    Project_Name = var.Project_Name
+    Date = local.current_date
   }
 }
 
@@ -22,6 +26,10 @@ resource "aws_route_table" "private" {
 
   tags = {
     Name = "private-route-table-${count.index + 1}"
+    Environment  = var.env
+    Email   = var.Email
+    Project_Name = var.Project_Name
+    Date = local.current_date
   }
 }
 
